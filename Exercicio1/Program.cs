@@ -14,7 +14,7 @@ namespace Exercicio1
             bool executando = true;
 
             while (executando) {
-                Console.WriteLine("\n Digite o que deseja fazer: ");
+                Console.WriteLine("\n \t Digite o que deseja fazer: ");
                 Console.WriteLine("1- Cadastrar um aluno");
                 Console.WriteLine("2- Listar todos os alunos");
                 Console.WriteLine("3- Alterar dados de um aluno");
@@ -27,11 +27,28 @@ namespace Exercicio1
                     case 1:
                         Aluno.CadastrarAluno();
                         break;
-
                     case 2:
                         Aluno.ListarAlunos();
                         break;
+                    case 3:
+                        Aluno.AlterarDados();
+                        break;
+                    case 4:
+                        Aluno.RemoverAluno();
+                        break;
+                    case 5:
+                        executando = false;
+                        Console.WriteLine("Saindo do sistema...");
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida! Digite um número de 1 a 5.");
+                        break;
                 }
+                Console.WriteLine("\n Pressione qualquer tecla para continuar...");
+                Console.ReadKey();  
+
+                Console.Clear();
+
             }
         }
     }

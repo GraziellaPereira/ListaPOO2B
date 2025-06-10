@@ -37,13 +37,50 @@ namespace Exercicio1
         public static void AlterarDados()
         {
             Console.WriteLine("Digite o RA do aluno que deseja alterar: ");
-            string ra = Console.ReadLine(); 
+            string ra = Console.ReadLine();
+            Aluno alunoEncontrado = listaAlunos.FirstOrDefault(a => a.RA == ra);
 
-            if (listaAlunos.Any(a => a.RA == ra)) { }
+            if (alunoEncontrado != null) {
+                Console.WriteLine("O que você deseja alterar? Digite um número: ");
+                Console.WriteLine("1- Nome");
+                Console.WriteLine("2- Idade");
+                int opcao = int.Parse(Console.ReadLine());
+
+                switch(opcao) {
+                    case 1:
+                        Console.WriteLine($"Nome do aluno que deseja alterar:{alunoEncontrado.Nome}");
+                        Console.WriteLine("Digite o nome com as alterações: ");
+                        string nomeAlterado = Console.ReadLine();
+                        alunoEncontrado.Nome = nomeAlterado;
+                        Console.WriteLine($"Nome alterado com sucesso! Nome do aluno corrigido: {alunoEncontrado.Nome}");
+                        break;
+                    case 2:
+                        Console.WriteLine($"Idade do aluno que deseja alterar: {alunoEncontrado.Idade}");
+                        Console.WriteLine("Digite a nova idade do aluno: ");
+                        int idadeAlterada = int.Parse(Console.ReadLine());
+                        alunoEncontrado.Idade = idadeAlterada;
+                        Console.WriteLine($"Idade alterada com sucesso! Idade corrigida: {alunoEncontrado.Idade}");
+                        break;
+                    default:
+                        Console.WriteLine("Opção inválida! Digite 1 ou 2.");
+                        break;
+                }
+            } else
+            {
+                Console.WriteLine("Nenhum aluno encontrado! Digite um RA válido.");
+                Console.ReadLine();
+       
+            }
         }
-        public void RemoverAluno()
+        public static void RemoverAluno()
         {
-
+            Console.WriteLine("Digite o RA do aluno que deseja alterar: ");
+            string ra = Console.ReadLine();
+            Aluno alunoEncontrado = listaAlunos.FirstOrDefault(a => a.RA == ra);
+            if (alunoEncontrado != null) {
+                Console.WriteLine($"O(a) aluno(a) {alunoEncontrado.Nome} foi removido com sucesso.");
+                listaAlunos.Remove(alunoEncontrado);
+            }
         }
     }
 }
