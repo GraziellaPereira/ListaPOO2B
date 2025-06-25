@@ -28,7 +28,7 @@ namespace Exercicio3
                         Console.WriteLine("Hora de finalizar o pagamento!");
                         Console.WriteLine("Digite o valor da compra: ");
                         double valor = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                        Console.WriteLine("Como deseja pagar? Digite o número correspondente: \n1- Cartão de crédito \n2- Boleto bancário ");
+                        Console.WriteLine("Como deseja pagar? Digite o número correspondente: \n1- Cartão de crédito \n2- Boleto bancário \n3- PIX ");
                         int opcao = int.Parse(Console.ReadLine());
 
                         switch (opcao)
@@ -39,6 +39,9 @@ namespace Exercicio3
 
                             case 2:
                                 metodoPagamento = new PagamentoBoleto();
+                                break;
+                            case 3:
+                                metodoPagamento = new PagamentoPIX();
                                 break;
                             default:
                                 Console.WriteLine("Opção inválida! Digite 1 ou 2.");
